@@ -1,0 +1,32 @@
+#Yubico secure files with pgp and view on the fly
+
+
+E:\prgs\j\graalvm-jdk-24+36.1\bin\java -agentlib:native-image-agent=config-output-dir=config -jar E:\__x\2\Seq\SequrFly\target\SequrFly-1.0-SNAPSHOT.jar
+
+
+#Native
+
+java -agentlib:native-image-agent=config-output-dir=config -jar xx.jar
+ -->create folder with reachability-metadata.json
+
+ put in
+ src\main\resources\META-INF\native-image\reachability-metadata.json
+
+better
+  java -agentlib:native-image-agent=config-output-dir=./native-config -jar myapp.jar
+  -H:ConfigurationFileDirectories=./native-config
+
+
+
+
+                     <buildArgs>
+                         <buildArg>--verbose</buildArg>
+                         <buildArg>-Djava.awt.headless=false</buildArg>
+                         <buildArg>-H:+ForeignAPISupport</buildArg>
+                         <buildArg>-H:+UnlockExperimentalVMOptions</buildArg>
+                         <buildArg>--no-fallback</buildArg>
+                         #without console
+                         <buildArg>-H:NativeLinkerOption=/SUBSYSTEM:WINDOWS</buildArg>
+                         <buildArg>-H:NativeLinkerOption=/ENTRY:mainCRTStartup</buildArg>
+                     </buildArgs>
+
